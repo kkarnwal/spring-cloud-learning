@@ -1,0 +1,22 @@
+server:
+  port: 9092
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${random.int}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+    
+spring:        
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

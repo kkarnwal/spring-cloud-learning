@@ -1,0 +1,13 @@
+---
+server:  port: 8888
+spring:  cloud:    config:      server:        encrypt:          enabled: false        git:          uri: https://github.com/kkarnwal/spring-cloud-config-wa-tolls
+          #username: uname
+          #password: pass
+          search-paths:          - 'station*'
+          repos:            perf:
+              pattern:                - "*/perf"
+              uri: https://github.com/kkarnwal/spring-cloud-config-wa-tolls-perf
+              search-paths:                - 'station*'  security:    user:      name: admin
+      password: admin123        
+          
+  

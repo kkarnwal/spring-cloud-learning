@@ -1,0 +1,54 @@
+server:
+  port: 9093
+eureka:
+  client:
+#    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+#  instance:
+#    hostname: localhost
+#    instance-id: ${spring.application.name}:${random.int}
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+ribbon:
+#  eager-load:
+#    enabled: true
+#    clients: stores
+  eureka:
+   enabled: true
+   
+#eureka:
+#  client:
+#    enabled: false
+##   
+#fastpass-ms:
+#  ribbon:
+#    NFLoadBalancerClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+#    listOfServers: localhost:50552,localhost:50610       
+#    ServerListRefreshInterval: 15000
+#    MaxAutoRetries: 0
+#    OkToRetryOnAllOperations: false
+#    MaxAutoRetriesNextServer: 1
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        fasspasschannel:
+          destination: fastpasstoll
+          producer:
+#          partitioned: true
+#            partitionKeyExpression: headers['speed']
+#            partitionCount: 2
+          #required-groups: tollProcessingGroup
+      default:
+        contentType: application/json    

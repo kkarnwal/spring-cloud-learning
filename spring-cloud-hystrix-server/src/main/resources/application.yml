@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Hystrix-Dashboard
+server:
+  port: 8080
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+      
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+#      base-path: /
+turbine:
+  appConfig: tollrate-dashboard,fastpass-console-ms
+  aggregator:
+    clusterConfig: TOLLRATE-DASHBOARD,FASTPASS-CONSOLE-MS

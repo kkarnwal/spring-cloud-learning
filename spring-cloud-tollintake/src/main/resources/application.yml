@@ -1,0 +1,21 @@
+server:
+  port: 0
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: fastpasstoll
+          group: tollProcessingGroup
+#          consumer:
+#            partitioned: true
+#      instanceCount: 2
+#      instanceIndex: 1
+#        output:
+#          destination: fastpasstollstatus      
+#spring.cloud.stream.instanceIndex=0
